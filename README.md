@@ -111,7 +111,7 @@ CMake Tools > Build > Run
 CMake Tools > Launch > Run
 ```
 
-[image_01.png](./img/image_01.png "image_01.png")
+![image_01.png](./img/image_01.png "Exécution du projet")
 
 # Débogage d’un projet C++ avec CMake sous VSCode
 
@@ -122,12 +122,16 @@ CMake Tools > Launch > Run
 Cliquer sur la ligne (5) pour placer un point d’arrêt (Breakpoint)
 ``` 
 
+![image_02.png](./img/image_02.png "Point d’arrêt")
+
 * Nous démarrons le débogage du projet dans l’éditeur (VSCode).
 
 // VSCode (Debug)
 ```
 CMake Tools > Debug > Run
 ```
+
+![image_03.png](./img/imag3_02.png "Débogage du projet")
 
 * Nous affichons les variables de débogage dans l’éditeur (VSCode).
 
@@ -136,12 +140,16 @@ CMake Tools > Debug > Run
 Débogueur > Variables > Locals
 ```
 
+![image_03.png](./img/image_03.png "Variables de débogage")
+
 * Nous affichons la pile des appels dans l’éditeur (VSCode).
 
 // VSCode (Debug)
 ```
 Débogueur > Call Stacks
 ```
+
+![image_04.png](./img/image_04.png "Pile des appels")
 
 # Construction d’un projet C++ en ligne de commande avec CMake
 
