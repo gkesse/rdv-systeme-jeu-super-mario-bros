@@ -24,6 +24,7 @@ void MainWindow::createActions()
     for (int i = 0; i < maxState; ++i)
     {
         saveStateAction[i] = new QAction("-Empty-", this);
+        loadStateAction[i] = new QAction("-Empty-", this);
     }
 }
 
@@ -33,9 +34,11 @@ void MainWindow::createMenus()
     fileMenu->addAction(returnAction);
 
     saveSubMenu = fileMenu->addMenu(tr("&Save"));
+    loadSubMenu = fileMenu->addMenu(tr("&Load"));
 
     for (int i = 0; i < maxState; i++)
     {
         saveSubMenu->addAction(saveStateAction[i]);
+        loadSubMenu->addAction(loadStateAction[i]);
     }
 }

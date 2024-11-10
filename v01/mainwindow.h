@@ -27,4 +27,7 @@ private:
 
     QMenu *saveSubMenu;
     QAction *saveStateAction[maxState];
+
+    QMenu *loadSubMenu;
+    QAction *loadStateAction[maxState];
 };
