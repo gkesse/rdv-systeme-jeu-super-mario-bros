@@ -4,6 +4,7 @@
     "*.layout-template": "vue",
     "*.vue": "vue",
     "qapplication": "cpp",
-    "qmainwindow": "cpp"
+    "qmainwindow": "cpp",
+    "qsplashscreen": "cpp"
   }
 }
