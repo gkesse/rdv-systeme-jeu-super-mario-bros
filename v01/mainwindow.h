@@ -26,6 +26,7 @@ private:
 
 private slots:
     void alterScreen();
+    void settings();
 
 private:
     QMenu *fileMenu;
@@ -41,4 +42,7 @@ private:
 
     QMenu *viewMenu;
     QAction *fullScreenAction;
+
+    QMenu *toolMenu;
+    QAction *settingsAction;
 };

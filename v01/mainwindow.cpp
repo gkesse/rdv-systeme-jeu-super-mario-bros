@@ -44,6 +44,10 @@ void MainWindow::createActions()
     fullScreenAction->setShortcut(tr("F11"));
     fullScreenAction->setStatusTip(tr("Fullscreen View"));
     connect(fullScreenAction, SIGNAL(triggered()), this, SLOT(alterScreen()));
+
+    settingsAction = new QAction(tr("&Settings"), this);
+    settingsAction->setStatusTip(tr("Change Game Settings"));
+    connect(settingsAction, SIGNAL(triggered()), this, SLOT(settings()));
 }
 
 void MainWindow::createMenus()
@@ -64,9 +68,18 @@ void MainWindow::createMenus()
 
     viewMenu = menuBar()->addMenu(tr("&View"));
     viewMenu->addAction(fullScreenAction);
+
+    toolMenu = menuBar()->addMenu(tr("&Tools"));
+    toolMenu->setToolTip("Game Settings");
+    toolMenu->addAction(settingsAction);
 }
 
 void MainWindow::alterScreen()
 {
     qDebug() << "MainWindow::alterScreen...";
+}
+
+void MainWindow::settings()
+{
+    qDebug() << "MainWindow::settings...";
 }
