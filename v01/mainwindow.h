@@ -24,6 +24,9 @@ private:
     void createActions();
     void createMenus();
 
+private slots:
+    void alterScreen();
+
 private:
     QMenu *fileMenu;
     QAction *returnAction;
@@ -35,4 +38,7 @@ private:
     QAction *loadStateAction[maxState];
 
     QAction *quitAction;
+
+    QMenu *viewMenu;
+    QAction *fullScreenAction;
 };

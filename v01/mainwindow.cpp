@@ -39,6 +39,11 @@ void MainWindow::createActions()
     quitAction->setShortcut(tr("Ctrl+Q"));
     quitAction->setStatusTip(tr("Quit"));
     connect(quitAction, SIGNAL(triggered()), this, SLOT(close()));
+
+    fullScreenAction = new QAction(tr("Full Screen"), this);
+    fullScreenAction->setShortcut(tr("F11"));
+    fullScreenAction->setStatusTip(tr("Fullscreen View"));
+    connect(fullScreenAction, SIGNAL(triggered()), this, SLOT(alterScreen()));
 }
 
 void MainWindow::createMenus()
@@ -56,4 +61,12 @@ void MainWindow::createMenus()
     }
 
     fileMenu->addAction(quitAction);
+
+    viewMenu = menuBar()->addMenu(tr("&View"));
+    viewMenu->addAction(fullScreenAction);
+}
+
+void MainWindow::alterScreen()
+{
+    qDebug() << "MainWindow::alterScreen...";
 }
