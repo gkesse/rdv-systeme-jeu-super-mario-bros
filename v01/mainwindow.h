@@ -17,6 +17,9 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+protected:
+    void closeEvent(QCloseEvent *event);
+
 private:
     void createActions();
     void createMenus();
@@ -30,4 +33,6 @@ private:
 
     QMenu *loadSubMenu;
     QAction *loadStateAction[maxState];
+
+    QAction *quitAction;
 };

@@ -3,6 +3,8 @@
 #include <QAction>
 #include <QMenu>
 #include <QMenuBar>
+#include <QDebug>
+#include <QApplication>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -13,6 +15,12 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
+}
+
+void MainWindow::closeEvent(QCloseEvent *event)
+{
+    qDebug() << "MainWindow::closeEvent...";
+    qApp->quit();
 }
 
 void MainWindow::createActions()
@@ -26,6 +34,11 @@ void MainWindow::createActions()
         saveStateAction[i] = new QAction("-Empty-", this);
         loadStateAction[i] = new QAction("-Empty-", this);
     }
+
+    quitAction = new QAction(tr("&Quit"), this);
+    quitAction->setShortcut(tr("Ctrl+Q"));
+    quitAction->setStatusTip(tr("Quit"));
+    connect(quitAction, SIGNAL(triggered()), this, SLOT(close()));
 }
 
 void MainWindow::createMenus()
@@ -41,4 +54,6 @@ void MainWindow::createMenus()
         saveSubMenu->addAction(saveStateAction[i]);
         loadSubMenu->addAction(loadStateAction[i]);
     }
+
+    fileMenu->addAction(quitAction);
 }
