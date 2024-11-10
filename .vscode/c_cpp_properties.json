@@ -1,0 +1,19 @@
+{
+  "configurations": [
+    {
+      "name": "Linux",
+      "includePath": [
+        "${workspaceFolder}/**",
+        "/home/admins/Qt5.14.2/5.14.2/gcc_64/include",
+        "/home/admins/Qt5.14.2/5.14.2/gcc_64/include/QtCore",
+        "/home/admins/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets"
+      ],
+      "defines": [],
+      "compilerPath": "/usr/bin/g++",
+      "cStandard": "gnu17",
+      "cppStandard": "gnu++17",
+      "intelliSenseMode": "linux-gcc-x64"
+    }
+  ],
+  "version": 4
+}
