@@ -7,6 +7,12 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
+private:
+    enum
+    {
+        maxState = 10
+    };
+
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
@@ -18,4 +24,7 @@ private:
 private:
     QMenu *fileMenu;
     QAction *returnAction;
+
+    QMenu *saveSubMenu;
+    QAction *saveStateAction[maxState];
 };
