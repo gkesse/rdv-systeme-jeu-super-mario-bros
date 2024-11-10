@@ -131,7 +131,7 @@ Cliquer sur la ligne (5) pour placer un point d’arrêt (Breakpoint)
 CMake Tools > Debug > Run
 ```
 
-![image_03.png](./img/imag3_02.png "Débogage du projet")
+![image_03.png](./img/image_03.png "Débogage du projet")
 
 * Nous affichons les variables de débogage dans l’éditeur (VSCode).
 
@@ -140,7 +140,7 @@ CMake Tools > Debug > Run
 Débogueur > Variables > Locals
 ```
 
-![image_03.png](./img/image_03.png "Variables de débogage")
+![image_04.png](./img/image_04.png "Variables de débogage")
 
 * Nous affichons la pile des appels dans l’éditeur (VSCode).
 
@@ -149,7 +149,7 @@ Débogueur > Variables > Locals
 Débogueur > Call Stacks
 ```
 
-![image_04.png](./img/image_04.png "Pile des appels")
+![image_05.png](./img/image_05.png "Pile des appels")
 
 # Construction d’un projet C++ en ligne de commande avec CMake
 
@@ -236,6 +236,8 @@ View > Terminal
 ./makes.sh all
 ```
 
+![image_01.png](./img/image_01.png "Construction du projet")
+
 # Construction d’un projet C++ Qt avec CMake
 
 * Nous récupérons le chemin du répertoire des fichiers d’en-tête C++ de Qt dans l’environnement (WSL).
@@ -321,5 +323,9 @@ int main(int argc, char *argv[])
 ./makes.sh all
 ```
 
+![image_06.png](./img/image_06.png "Construction du projet")
+
 # Contacts
 
+* [ReadyDev](https://readydev.ovh/home "Consultez mon site personnel ReadyDev...")
+* [LinkedIn] (https://www.linkedin.com/in/tia-gerard-kesse/ "Contactez-moi sur LinkedIn")
