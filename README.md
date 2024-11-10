@@ -327,5 +327,5 @@ int main(int argc, char *argv[])
 
 # Contacts
 
-* [ReadyDev](https://readydev.ovh/home "Consultez mon site personnel ReadyDev")
-* [LinkedIn](https://www.linkedin.com/in/tia-gerard-kesse/ "Contactez-moi sur LinkedIn")
+* [ReadyDev](https://readydev.ovh/home "Consultez mon site personnel (ReadyDev)")
+* [LinkedIn](https://www.linkedin.com/in/tia-gerard-kesse/ "Contactez-moi sur (LinkedIn)")
