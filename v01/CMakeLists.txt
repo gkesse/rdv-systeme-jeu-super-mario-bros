@@ -11,6 +11,7 @@ Widgets
 add_executable(ReadyMario
 main.cpp
 mainwindow.cpp
+settings.cpp
 mario.qrc
 )
 

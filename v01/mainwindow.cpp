@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "settings.h"
 
 #include <QAction>
 #include <QMenu>
@@ -56,6 +57,8 @@ void MainWindow::createActions()
     weatherStationAction->setShortcut(tr("Ctrl+w"));
     weatherStationAction->setStatusTip(tr("Date and Time"));
     connect(weatherStationAction, SIGNAL(triggered()), this, SLOT(showWeather()));
+
+    setting = new Settings(this);
 }
 
 void MainWindow::createMenus()
@@ -97,7 +100,7 @@ void MainWindow::alterScreen()
 
 void MainWindow::settings()
 {
-    qDebug() << "MainWindow::settings...";
+    setting->show();
 }
 
 void MainWindow::showAbout()

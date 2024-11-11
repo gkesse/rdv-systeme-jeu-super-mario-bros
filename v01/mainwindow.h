@@ -2,6 +2,7 @@
 
 class QMenu;
 class QAction;
+class Settings;
 
 class MainWindow : public QMainWindow
 {
@@ -47,6 +48,7 @@ private:
 
     QMenu *toolMenu;
     QAction *settingsAction;
+    Settings *setting;
 
     QMenu *helpMenu;
     QAction *aboutAction;
