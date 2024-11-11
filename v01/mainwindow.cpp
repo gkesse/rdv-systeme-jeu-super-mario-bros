@@ -51,6 +51,11 @@ void MainWindow::createActions()
 
     aboutAction = new QAction(tr("&About"), this);
     connect(aboutAction, SIGNAL(triggered()), this, SLOT(showAbout()));
+
+    weatherStationAction = new QAction(tr("&Date and Time"), this);
+    weatherStationAction->setShortcut(tr("Ctrl+w"));
+    weatherStationAction->setStatusTip(tr("Date and Time"));
+    connect(weatherStationAction, SIGNAL(triggered()), this, SLOT(showWeather()));
 }
 
 void MainWindow::createMenus()
@@ -79,6 +84,10 @@ void MainWindow::createMenus()
     helpMenu = menuBar()->addMenu(tr("&Help"));
     helpMenu->setToolTip("Developer Info");
     helpMenu->addAction(aboutAction);
+
+    weatherMenu = menuBar()->addMenu(tr("&UDP"));
+    weatherMenu->setToolTip("UDP ");
+    weatherMenu->addAction(weatherStationAction);
 }
 
 void MainWindow::alterScreen()
@@ -94,4 +103,9 @@ void MainWindow::settings()
 void MainWindow::showAbout()
 {
     qDebug() << "MainWindow::showAbout...";
+}
+
+void MainWindow::showWeather()
+{
+    qDebug() << "MainWindow::showWeather...";
 }

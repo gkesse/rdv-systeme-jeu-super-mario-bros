@@ -28,6 +28,7 @@ private slots:
     void alterScreen();
     void settings();
     void showAbout();
+    void showWeather();
 
 private:
     QMenu *fileMenu;
@@ -49,4 +50,7 @@ private:
 
     QMenu *helpMenu;
     QAction *aboutAction;
+
+    QMenu *weatherMenu;
+    QAction *weatherStationAction;
 };
