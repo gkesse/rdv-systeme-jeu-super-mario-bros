@@ -2,6 +2,9 @@
 
 class QLabel;
 class QLineEdit;
+class QSlider;
+class QSpinBox;
+class QRadioButton;
 
 class Settings : public QDialog
 {
@@ -14,4 +17,8 @@ public:
 private:
     QLabel *label;
     QLineEdit *lineEdit;
+
+    QLabel *screenSize;
+    QRadioButton *fullScreenView;
+    QRadioButton *windowedView;
 };
