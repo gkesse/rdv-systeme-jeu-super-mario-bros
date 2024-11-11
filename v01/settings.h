@@ -5,6 +5,7 @@ class QLineEdit;
 class QSlider;
 class QSpinBox;
 class QRadioButton;
+class QPushButton;
 
 class Settings : public QDialog
 {
@@ -29,4 +30,7 @@ private:
     QLabel *sfxLabel;
     QSlider *sfxSlider;
     QSpinBox *sfxSpinBox;
+
+    QPushButton *confirmButton;
+    QPushButton *cancelButton;
 };

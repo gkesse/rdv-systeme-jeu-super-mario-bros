@@ -7,6 +7,7 @@
 #include <QSlider>
 #include <QSpinBox>
 #include <QRadioButton>
+#include <QPushButton>
 
 Settings::Settings(QWidget *parent)
     : QDialog(parent)
@@ -33,6 +34,9 @@ Settings::Settings(QWidget *parent)
     sfxSlider->setRange(0, 100);
     sfxSpinBox->setRange(0, 100);
 
+    confirmButton = new QPushButton(tr("Confirm"));
+    cancelButton = new QPushButton(tr("Cancel"));
+
     QHBoxLayout *firstLayout = new QHBoxLayout;
     firstLayout->addWidget(label);
     firstLayout->addWidget(lineEdit);
@@ -55,11 +59,16 @@ Settings::Settings(QWidget *parent)
     fourthLayout->addWidget((sfxSlider));
     fourthLayout->addWidget(sfxSpinBox);
 
+    QHBoxLayout *fifthLayout = new QHBoxLayout;
+    fifthLayout->addWidget(confirmButton);
+    fifthLayout->addWidget(cancelButton);
+
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addLayout(firstLayout);
     mainLayout->addLayout(secondLayout);
     mainLayout->addLayout(thirdLayout);
     mainLayout->addLayout(fourthLayout);
+    mainLayout->addLayout(fifthLayout);
 
     setLayout(mainLayout);
     setWindowModality(Qt::WindowModal);
