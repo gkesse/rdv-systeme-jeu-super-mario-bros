@@ -21,6 +21,12 @@ Settings::Settings(QWidget *parent)
     windowedView = new QRadioButton("Off");
     windowedView->setChecked(true);
 
+    bgmLabel = new QLabel(tr("Music"));
+    bgmSlider = new QSlider(Qt::Horizontal);
+    bgmSpinBox = new QSpinBox;
+    bgmSlider->setRange(0, 100);
+    bgmSpinBox->setRange(0, 100);
+
     QHBoxLayout *firstLayout = new QHBoxLayout;
     firstLayout->addWidget(label);
     firstLayout->addWidget(lineEdit);
@@ -32,9 +38,16 @@ Settings::Settings(QWidget *parent)
     secondLayout->addWidget(windowedView);
     secondLayout->addStretch();
 
+    QHBoxLayout *thirdLayout = new QHBoxLayout;
+    thirdLayout->addWidget(bgmLabel);
+    thirdLayout->addStretch();
+    thirdLayout->addWidget((bgmSlider));
+    thirdLayout->addWidget(bgmSpinBox);
+
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addLayout(firstLayout);
     mainLayout->addLayout(secondLayout);
+    mainLayout->addLayout(thirdLayout);
 
     setLayout(mainLayout);
     setWindowModality(Qt::WindowModal);

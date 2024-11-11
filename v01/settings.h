@@ -21,4 +21,8 @@ private:
     QLabel *screenSize;
     QRadioButton *fullScreenView;
     QRadioButton *windowedView;
+
+    QLabel *bgmLabel;
+    QSlider *bgmSlider;
+    QSpinBox *bgmSpinBox;
 };
