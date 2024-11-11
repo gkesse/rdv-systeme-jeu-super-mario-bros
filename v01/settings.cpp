@@ -27,6 +27,12 @@ Settings::Settings(QWidget *parent)
     bgmSlider->setRange(0, 100);
     bgmSpinBox->setRange(0, 100);
 
+    sfxLabel = new QLabel(tr("Sound Effects"));
+    sfxSlider = new QSlider(Qt::Horizontal);
+    sfxSpinBox = new QSpinBox;
+    sfxSlider->setRange(0, 100);
+    sfxSpinBox->setRange(0, 100);
+
     QHBoxLayout *firstLayout = new QHBoxLayout;
     firstLayout->addWidget(label);
     firstLayout->addWidget(lineEdit);
@@ -44,10 +50,16 @@ Settings::Settings(QWidget *parent)
     thirdLayout->addWidget((bgmSlider));
     thirdLayout->addWidget(bgmSpinBox);
 
+    QHBoxLayout *fourthLayout = new QHBoxLayout;
+    fourthLayout->addWidget(sfxLabel);
+    fourthLayout->addWidget((sfxSlider));
+    fourthLayout->addWidget(sfxSpinBox);
+
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addLayout(firstLayout);
     mainLayout->addLayout(secondLayout);
     mainLayout->addLayout(thirdLayout);
+    mainLayout->addLayout(fourthLayout);
 
     setLayout(mainLayout);
     setWindowModality(Qt::WindowModal);

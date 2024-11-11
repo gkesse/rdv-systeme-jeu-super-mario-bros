@@ -25,4 +25,8 @@ private:
     QLabel *bgmLabel;
     QSlider *bgmSlider;
     QSpinBox *bgmSpinBox;
+
+    QLabel *sfxLabel;
+    QSlider *sfxSlider;
+    QSpinBox *sfxSpinBox;
 };
