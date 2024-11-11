@@ -27,6 +27,7 @@ private:
 private slots:
     void alterScreen();
     void settings();
+    void showAbout();
 
 private:
     QMenu *fileMenu;
@@ -45,4 +46,7 @@ private:
 
     QMenu *toolMenu;
     QAction *settingsAction;
+
+    QMenu *helpMenu;
+    QAction *aboutAction;
 };

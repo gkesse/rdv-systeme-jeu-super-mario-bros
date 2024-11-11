@@ -48,6 +48,9 @@ void MainWindow::createActions()
     settingsAction = new QAction(tr("&Settings"), this);
     settingsAction->setStatusTip(tr("Change Game Settings"));
     connect(settingsAction, SIGNAL(triggered()), this, SLOT(settings()));
+
+    aboutAction = new QAction(tr("&About"), this);
+    connect(aboutAction, SIGNAL(triggered()), this, SLOT(showAbout()));
 }
 
 void MainWindow::createMenus()
@@ -72,6 +75,10 @@ void MainWindow::createMenus()
     toolMenu = menuBar()->addMenu(tr("&Tools"));
     toolMenu->setToolTip("Game Settings");
     toolMenu->addAction(settingsAction);
+
+    helpMenu = menuBar()->addMenu(tr("&Help"));
+    helpMenu->setToolTip("Developer Info");
+    helpMenu->addAction(aboutAction);
 }
 
 void MainWindow::alterScreen()
@@ -82,4 +89,9 @@ void MainWindow::alterScreen()
 void MainWindow::settings()
 {
     qDebug() << "MainWindow::settings...";
+}
+
+void MainWindow::showAbout()
+{
+    qDebug() << "MainWindow::showAbout...";
 }
