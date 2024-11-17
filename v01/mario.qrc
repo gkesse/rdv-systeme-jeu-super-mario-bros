@@ -3,5 +3,6 @@
         <file>images/icon.ico</file>
         <file>images/mariosplash.png</file>
         <file>images/AD_Mario_Logo_Bar.png</file>
+        <file>images/background.png</file>
     </qresource>
 </RCC>

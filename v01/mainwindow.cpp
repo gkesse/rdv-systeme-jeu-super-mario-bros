@@ -18,8 +18,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
     createActions();
     createMenus();
-    //  createScene();
-    //  setCentralWidget(view);
+    createScene();
+    setCentralWidget(view);
     setWindowTitle("ReadyMario™ - Super Mario Bros Game");
 }
 
