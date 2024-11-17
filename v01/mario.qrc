@@ -4,5 +4,8 @@
         <file>images/mariosplash.png</file>
         <file>images/AD_Mario_Logo_Bar.png</file>
         <file>images/background.png</file>
+        <file>images/title.png</file>
+        <file>images/logo.png</file>
+        <file>font/mvboli.ttf</file>
     </qresource>
 </RCC>
