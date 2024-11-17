@@ -1,3 +1,5 @@
+#pragma once
+
 #include <QDialog>
 
 class QLabel;
@@ -14,6 +16,22 @@ class Settings : public QDialog
 public:
     explicit Settings(QWidget *parent = 0);
     ~Settings();
+    void setState();
+    void revertState();
+    void readSettings();
+    void writeSettings();
+    void alterState();
+
+private slots:
+    void confirm();
+    void reject();
+    void bgmChanged();
+    void sfxChanged();
+
+signals:
+    void fullScreen(bool);
+    void bgmAdjust(int);
+    void sfxAdjust(int);
 
 private:
     QLabel *label;
@@ -33,4 +51,9 @@ private:
 
     QPushButton *confirmButton;
     QPushButton *cancelButton;
+
+    bool full;
+    bool window;
+    int bgm;
+    int sfx;
 };

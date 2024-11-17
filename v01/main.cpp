@@ -14,6 +14,7 @@ int main(int argc, char *argv[])
     splash.show();
 
     MainWindow mainWin;
+    mainWin.setSize();
 
     QTimer::singleShot(500, &splash, SLOT(close()));
     QTimer::singleShot(500, &mainWin, SLOT(show()));

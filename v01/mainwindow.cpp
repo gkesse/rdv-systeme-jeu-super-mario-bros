@@ -1,26 +1,43 @@
 #include "mainwindow.h"
 #include "settings.h"
+#include "view.h"
+#include "title.h"
+#include "about_dialog.h"
+#include "weatherstation.h"
 
 #include <QAction>
 #include <QMenu>
 #include <QMenuBar>
 #include <QDebug>
 #include <QApplication>
+#include <QGuiApplication>
+#include <QScreen>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
     createActions();
     createMenus();
+    //  createScene();
+    //  setCentralWidget(view);
+    setWindowTitle("ReadyMario™ - Super Mario Bros Game");
 }
 
 MainWindow::~MainWindow()
 {
 }
 
+void MainWindow::setSize()
+{
+    this->setFixedSize(1280, 740);
+    int x = ((QGuiApplication::primaryScreen()->geometry().width() - width()) / 2);
+    int y = ((QGuiApplication::primaryScreen()->geometry().height() - height()) / 2);
+    this->move(x, y);
+}
+
 void MainWindow::closeEvent(QCloseEvent *event)
 {
-    qDebug() << "MainWindow::closeEvent...";
+    setting->writeSettings();
     qApp->quit();
 }
 
@@ -59,6 +76,7 @@ void MainWindow::createActions()
     connect(weatherStationAction, SIGNAL(triggered()), this, SLOT(showWeather()));
 
     setting = new Settings(this);
+    setting->readSettings();
 }
 
 void MainWindow::createMenus()
@@ -93,9 +111,15 @@ void MainWindow::createMenus()
     weatherMenu->addAction(weatherStationAction);
 }
 
+void MainWindow::createScene()
+{
+    view = new View;
+    title = new Title(view);
+}
+
 void MainWindow::alterScreen()
 {
-    qDebug() << "MainWindow::alterScreen...";
+    setting->alterState();
 }
 
 void MainWindow::settings()
@@ -105,10 +129,12 @@ void MainWindow::settings()
 
 void MainWindow::showAbout()
 {
-    qDebug() << "MainWindow::showAbout...";
+    about = new About_Dialog;
+    about->exec();
 }
 
 void MainWindow::showWeather()
 {
-    qDebug() << "MainWindow::showWeather...";
+    weatherStation = new WeatherStation();
+    weatherStation->exec();
 }

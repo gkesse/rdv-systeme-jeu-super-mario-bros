@@ -8,10 +8,14 @@
 #include <QSpinBox>
 #include <QRadioButton>
 #include <QPushButton>
+#include <QSettings>
 
 Settings::Settings(QWidget *parent)
     : QDialog(parent)
 {
+    setWindowModality(Qt::WindowModal);
+    setWindowTitle("ReadyMario™ - Settings");
+
     label = new QLabel(tr("Developer Login: "));
     lineEdit = new QLineEdit;
     lineEdit->setObjectName(QString("lineEdit"));
@@ -69,12 +73,90 @@ Settings::Settings(QWidget *parent)
     mainLayout->addLayout(thirdLayout);
     mainLayout->addLayout(fourthLayout);
     mainLayout->addLayout(fifthLayout);
-
     setLayout(mainLayout);
-    setWindowModality(Qt::WindowModal);
-    setWindowTitle("Settings");
+
+    connect(bgmSpinBox, SIGNAL(valueChanged(int)), bgmSlider, SLOT(setValue(int)));
+    connect(bgmSlider, SIGNAL(valueChanged(int)), bgmSpinBox, SLOT(setValue(int)));
+    connect(bgmSlider, SIGNAL(valueChanged(int)), this, SLOT(bgmChanged()));
+    connect(sfxSpinBox, SIGNAL(valueChanged(int)), sfxSlider, SLOT(setValue(int)));
+    connect(sfxSlider, SIGNAL(valueChanged(int)), sfxSpinBox, SLOT(setValue(int)));
+    connect(sfxSlider, SIGNAL(valueChanged(int)), this, SLOT(sfxChanged()));
+    connect(confirmButton, SIGNAL(clicked(bool)), this, SLOT(confirm()));
+    connect(cancelButton, SIGNAL(clicked(bool)), this, SLOT(reject()));
 }
 
 Settings::~Settings()
 {
+}
+
+void Settings::setState()
+{
+    full = fullScreenView->isChecked();
+    window = windowedView->isChecked();
+    bgm = bgmSlider->value();
+    sfx = sfxSlider->value();
+}
+
+void Settings::revertState()
+{
+    fullScreenView->setChecked(full);
+    windowedView->setChecked(window);
+    bgmSlider->setValue(bgm);
+    sfxSlider->setValue(sfx);
+}
+
+void Settings::readSettings()
+{
+    QSettings settings("ReadyDev-Group", "Ready-Mario-Game");
+    fullScreenView->setChecked(settings.value("fullscreen", false).toBool());
+    bgmSlider->setValue(settings.value("bgm", 50).toInt());
+    sfxSlider->setValue(settings.value("sfx", 50).toInt());
+    confirm();
+}
+
+void Settings::writeSettings()
+{
+    QSettings settings("ReadyDev-Group", "Ready-Mario-Game");
+    settings.setValue("fullscreen", fullScreenView->isChecked());
+    settings.setValue("bgm", bgmSlider->value());
+    settings.setValue("sfx", sfxSlider->value());
+}
+
+void Settings::alterState()
+{
+    if (full)
+    {
+        windowedView->setChecked(true);
+    }
+    else
+    {
+        fullScreenView->setChecked(true);
+    }
+    show();
+    confirm();
+}
+
+void Settings::confirm()
+{
+    emit fullScreen(fullScreenView->isChecked());
+    emit bgmAdjust(bgmSlider->value());
+    emit sfxAdjust(sfxSlider->value());
+    setState();
+    close();
+}
+
+void Settings::reject()
+{
+    revertState();
+    QDialog::reject();
+}
+
+void Settings::bgmChanged()
+{
+    emit bgmAdjust(bgmSlider->value());
+}
+
+void Settings::sfxChanged()
+{
+    emit sfxAdjust(sfxSlider->value());
 }

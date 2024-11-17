@@ -1,8 +1,15 @@
+#pragma once
+
 #include <QMainWindow>
 
 class QMenu;
 class QAction;
 class Settings;
+
+class View;
+class Title;
+class About_Dialog;
+class WeatherStation;
 
 class MainWindow : public QMainWindow
 {
@@ -17,6 +24,7 @@ private:
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void setSize();
 
 protected:
     void closeEvent(QCloseEvent *event);
@@ -24,6 +32,7 @@ protected:
 private:
     void createActions();
     void createMenus();
+    void createScene();
 
 private slots:
     void alterScreen();
@@ -55,4 +64,11 @@ private:
 
     QMenu *weatherMenu;
     QAction *weatherStationAction;
+
+    View *view;
+    Title *title;
+
+    About_Dialog *about;
+
+    WeatherStation *weatherStation;
 };
