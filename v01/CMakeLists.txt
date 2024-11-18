@@ -8,6 +8,7 @@ set(CMAKE_AUTOUIC ON)
 find_package(Qt5 REQUIRED COMPONENTS
 Widgets
 Network
+Sql
 )
 
 QT5_WRAP_UI(
@@ -22,10 +23,12 @@ view.cpp
 title.cpp
 about_dialog.cpp
 weatherstation.cpp
+database.cpp
 mario.qrc
 )
 
 target_link_libraries (ReadyMario
 Qt5::Widgets
 Qt5::Network
+Qt5::Sql
 )

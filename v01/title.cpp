@@ -104,8 +104,6 @@ Title::Title(View *view, QWidget *parent)
     quitButton->setToolTip("Quit program");
     quitButton->setGeometry(QRect(642, 535, 100, 32));
     connect(quitButton, SIGNAL(clicked()), this, SLOT(quitProgram()));
-
-    scroll = viewer->horizontalScrollBar();
 }
 
 Title::~Title()
@@ -118,6 +116,7 @@ void Title::on_radioButton_toggled(bool checked)
 
 void Title::login()
 {
+    DataB::DBConnect(DBase);
 }
 
 void Title::newUser()

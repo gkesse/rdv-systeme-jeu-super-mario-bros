@@ -3,6 +3,8 @@
 #include <QGraphicsScene>
 #include <QGraphicsPixmapItem>
 
+#include "database.h"
+
 class QScrollBar;
 class QPropertyAnimation;
 class QPushButton;
@@ -51,7 +53,7 @@ private:
     QPushButton *quitButton;
     QPushButton *newUserButton;
 
-    QScrollBar *scroll;
+    Connection DBase;
 };
 
 class AnimatedGraphicsItem : public QObject, public QGraphicsPixmapItem

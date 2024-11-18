@@ -9,7 +9,8 @@
         "/home/admins/Qt5.14.2/5.14.2/gcc_64/include/QtCore",
         "/home/admins/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets",
         "/home/admins/Qt5.14.2/5.14.2/gcc_64/include/QtGui",
-        "/home/admins/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork"
+        "/home/admins/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork",
+        "/home/admins/Qt5.14.2/5.14.2/gcc_64/include/QtSql"
       ],
       "defines": [],
       "compilerPath": "/usr/bin/g++",
