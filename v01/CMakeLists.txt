@@ -11,9 +11,12 @@ Network
 Sql
 )
 
-QT5_WRAP_UI(
-about_dialog.ui
+set(UI_FILES
+about_dialog.cpp
+loginwindow.cpp
 )
+
+QT5_WRAP_UI(UI_FILES)
 
 add_executable(ReadyMario
 main.cpp
@@ -21,9 +24,9 @@ mainwindow.cpp
 settings.cpp
 view.cpp
 title.cpp
-about_dialog.cpp
 weatherstation.cpp
 database.cpp
+${UI_FILES}
 mario.qrc
 )
 

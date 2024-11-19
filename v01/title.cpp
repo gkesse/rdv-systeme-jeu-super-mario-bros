@@ -1,5 +1,6 @@
 #include "title.h"
 #include "view.h"
+#include "loginwindow.h"
 
 #include <QScrollBar>
 #include <QPropertyAnimation>
@@ -173,6 +174,8 @@ void Title::login()
 
 void Title::newUser()
 {
+    loginWindow = new LoginWindow();
+    loginWindow->exec();
 }
 
 void Title::developerLogin()

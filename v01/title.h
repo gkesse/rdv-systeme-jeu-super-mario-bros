@@ -15,6 +15,7 @@ class QRadioButton;
 
 class View;
 class AnimatedGraphicsItem;
+class LoginWindow;
 
 class Title : public QGraphicsScene
 {
@@ -63,6 +64,8 @@ private:
     QRegularExpressionMatch *usernamenameMatch;
     QRegularExpression *passwordRegEx;
     QRegularExpressionMatch *passwordMatch;
+
+    LoginWindow *loginWindow;
 };
 
 class AnimatedGraphicsItem : public QObject, public QGraphicsPixmapItem
