@@ -13,7 +13,25 @@
   <property name="windowTitle">
    <string>Register New User</string>
   </property>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>160</y>
+     <width>114</width>
+     <height>120</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="mario.qrc">:/images/loginlogo.png</pixmap>
+   </property>
+  </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="mario.qrc"/>
+ </resources>
  <connections/>
 </ui>

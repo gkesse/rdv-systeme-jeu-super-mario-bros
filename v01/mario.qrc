@@ -6,6 +6,7 @@
         <file>images/background.png</file>
         <file>images/title.png</file>
         <file>images/logo.png</file>
+        <file>images/loginlogo.png</file>
         <file>font/mvboli.ttf</file>
     </qresource>
 </RCC>
