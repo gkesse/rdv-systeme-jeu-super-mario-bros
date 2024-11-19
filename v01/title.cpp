@@ -9,6 +9,8 @@
 #include <QRadioButton>
 #include <QFontDatabase>
 #include <QApplication>
+#include <QMessageBox>
+#include <QDebug>
 
 Title::Title(View *view, QWidget *parent)
     : QGraphicsScene(parent)
@@ -110,6 +112,19 @@ Title::~Title()
 {
 }
 
+bool Title::regExUserTest()
+{
+    bool accessGranted = false;
+    usernameRegEx = new QRegularExpression("^([a-z0-9_\\.-]+)@([\\da-z\\.-]+)\\.([a-z\\.]{2,6})$");
+    usernamenameMatch = new QRegularExpressionMatch(usernameRegEx->match(userLine->text()));
+    accessGranted = usernamenameMatch->hasMatch();
+
+    if (accessGranted)
+        return true;
+    else
+        return false;
+}
+
 void Title::on_radioButton_toggled(bool checked)
 {
 }
@@ -117,6 +132,43 @@ void Title::on_radioButton_toggled(bool checked)
 void Title::login()
 {
     DataB::DBConnect(DBase);
+
+    if (userLine->text().isEmpty())
+    {
+        QMessageBox msgBox;
+        msgBox.setText("You must enter a username.");
+        msgBox.setWindowTitle("Warning");
+        msgBox.exec();
+        return;
+    }
+    if (regExUserTest() == false)
+    {
+        QMessageBox msgBoxFail;
+        msgBoxFail.setText("That is not a valid email address.");
+        msgBoxFail.setWindowTitle("Warning");
+        msgBoxFail.exec();
+        return;
+    }
+    if (passLine->text().isEmpty())
+    {
+        QMessageBox msgBox2;
+        msgBox2.setText("You must enter a password.  ");
+        msgBox2.setWindowTitle("Warning");
+        msgBox2.exec();
+        return;
+    }
+
+    Query uInput;
+    uInput.uName = userLine->text();
+    uInput.pass = passLine->text();
+
+    qDebug() << "La récupération des données de l'utilisateur a réussi."
+             << "|username=" << uInput.uName
+             << "|password=" << uInput.pass;
+
+    if (DataB::cUsrPas(uInput, DBase.db))
+    {
+    }
 }
 
 void Title::newUser()

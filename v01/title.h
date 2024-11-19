@@ -2,6 +2,7 @@
 
 #include <QGraphicsScene>
 #include <QGraphicsPixmapItem>
+#include <QRegularExpression>
 
 #include "database.h"
 
@@ -22,6 +23,9 @@ class Title : public QGraphicsScene
 public:
     explicit Title(View *view, QWidget *parent = 0);
     ~Title();
+
+private:
+    bool regExUserTest();
 
 private slots:
     void on_radioButton_toggled(bool checked);
@@ -54,6 +58,11 @@ private:
     QPushButton *newUserButton;
 
     Connection DBase;
+
+    QRegularExpression *usernameRegEx;
+    QRegularExpressionMatch *usernamenameMatch;
+    QRegularExpression *passwordRegEx;
+    QRegularExpressionMatch *passwordMatch;
 };
 
 class AnimatedGraphicsItem : public QObject, public QGraphicsPixmapItem
