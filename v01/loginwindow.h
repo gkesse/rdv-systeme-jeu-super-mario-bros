@@ -1,6 +1,9 @@
 #pragma once
 
 #include <QDialog>
+#include <QRegularExpression>
+
+#include "database.h"
 
 namespace Ui
 {
@@ -15,6 +18,10 @@ public:
     explicit LoginWindow(QWidget *parent = 0);
     ~LoginWindow();
 
+private:
+    bool regExUsernameTest();
+    bool regExPasswordTest();
+
 private slots:
     void on_btnSubmit_clicked();
     void on_btnCancel_clicked();
@@ -22,4 +29,11 @@ private slots:
 
 private:
     Ui::LoginWindow *ui;
+
+    QRegularExpression *userRegEx;
+    QRegularExpressionMatch *userMatch;
+    QRegularExpression *passRegEx;
+    QRegularExpressionMatch *passMatch;
+
+    Connection DBase;
 };

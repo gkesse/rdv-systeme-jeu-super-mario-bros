@@ -61,4 +61,55 @@ namespace DataB
             return valid;
         }
     }
+
+    bool regUsr(Query Input, QSqlDatabase db)
+    {
+        QString insert;
+        QSqlQuery Q(db);
+
+        if (chkUsr(Input, db))
+        {
+            insert = "INSERT INTO _users (_username, _password) VALUES "
+                     "('" +
+                     Input.uName + "', SHA1('" + Input.pass + "'))";
+
+            if (!Q.exec(insert))
+            {
+                qDebug() << "L'exécution de la requête a échoué."
+                         << "|error=" << Q.lastError().text();
+                return false;
+            }
+
+            db.close();
+            return true;
+        }
+        else
+        {
+            db.close();
+            return false;
+        }
+    }
+
+    bool chkUsr(Query Input, QSqlDatabase db)
+    {
+        QSqlQuery Q(db);
+        QString select;
+        bool valid = true;
+        select = "SELECT _username FROM ready_mario_db WHERE _username='" + Input.uName + "'";
+
+        if (!Q.exec(select))
+        {
+            qDebug() << "L'exécution de la requête a échoué."
+                     << "|error=" << Q.lastError().text();
+            return true;
+        }
+        if (Q.size() == 1)
+        {
+            return false;
+        }
+        else
+        {
+            return valid;
+        }
+    }
 }

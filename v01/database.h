@@ -9,8 +9,9 @@ namespace DataB
 {
     bool DBConnect(Connection &);
     bool cUsrPas(Query, QSqlDatabase);
+    bool regUsr(Query, QSqlDatabase);
+    bool chkUsr(Query, QSqlDatabase);
 }
-
 struct Connection
 {
     QSqlDatabase db;
