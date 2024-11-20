@@ -9,11 +9,13 @@ find_package(Qt5 REQUIRED COMPONENTS
 Widgets
 Network
 Sql
+Multimedia
 )
 
 set(UI_FILES
 about_dialog.cpp
 loginwindow.cpp
+soundmanager.cpp
 )
 
 QT5_WRAP_UI(UI_FILES)
@@ -32,10 +34,12 @@ player.cpp
 coin.cpp
 ${UI_FILES}
 mario.qrc
+audio.qrc
 )
 
 target_link_libraries (ReadyMario
 Qt5::Widgets
 Qt5::Network
 Qt5::Sql
+Qt5::Multimedia
 )

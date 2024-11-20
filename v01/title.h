@@ -17,6 +17,7 @@ class View;
 class AnimatedGraphicsItem;
 class LoginWindow;
 class MyScene;
+class SoundManager;
 
 class Title : public QGraphicsScene
 {
@@ -73,6 +74,7 @@ private:
 
     MyScene *scene;
     QScrollBar *scroll;
+    SoundManager *soundManager;
 };
 
 class AnimatedGraphicsItem : public QObject, public QGraphicsPixmapItem

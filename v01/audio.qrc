@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>audio/jump.wav</file>
+        <file>audio/ThemeSong.mp3</file>
+    </qresource>
+</RCC>
