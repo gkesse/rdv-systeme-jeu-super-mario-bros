@@ -213,6 +213,20 @@ void Title::newUser()
 
 void Title::developerLogin()
 {
+    loginButton->close();
+    newUserButton->close();
+    passLine->close();
+    userLine->close();
+    userName->close();
+    password->close();
+    radioButton->close();
+    radioText->close();
+    developerButton->close();
+    quitButton->close();
+
+    scene = new MyScene(scroll, this);
+    viewer->sceneSet(scene);
+    emit playSound("stopMusic");
 }
 
 void Title::quitProgram()
