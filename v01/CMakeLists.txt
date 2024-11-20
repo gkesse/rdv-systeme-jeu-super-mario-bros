@@ -27,6 +27,9 @@ title.cpp
 weatherstation.cpp
 database.cpp
 myscene.cpp
+backgrounditem.cpp
+player.cpp
+coin.cpp
 ${UI_FILES}
 mario.qrc
 )
