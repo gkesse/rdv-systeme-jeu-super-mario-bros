@@ -95,11 +95,11 @@ void MyScene::initPlayField()
     m_castle->setPos(7637, m_groundLevel - m_castle->boundingRect().height());
     addItem(m_castle);
 
+    startTimer(100);
+
     m_coins = new Coin();
     m_coins->setPos(1300, m_groundLevel - m_coins->boundingRect().height() - 200);
     addItem(m_coins);
-
-    startTimer(100);
 }
 
 void MyScene::checkTimer()
