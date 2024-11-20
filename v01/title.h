@@ -6,16 +6,17 @@
 
 #include "database.h"
 
-class QScrollBar;
 class QPropertyAnimation;
 class QPushButton;
 class QLineEdit;
 class QLabel;
 class QRadioButton;
+class QScrollBar;
 
 class View;
 class AnimatedGraphicsItem;
 class LoginWindow;
+class MyScene;
 
 class Title : public QGraphicsScene
 {
@@ -34,6 +35,9 @@ private slots:
     void newUser();
     void developerLogin();
     void quitProgram();
+
+signals:
+    void playSound(QString);
 
 private:
     const int width = 1280;
@@ -66,6 +70,9 @@ private:
     QRegularExpressionMatch *passwordMatch;
 
     LoginWindow *loginWindow;
+
+    MyScene *scene;
+    QScrollBar *scroll;
 };
 
 class AnimatedGraphicsItem : public QObject, public QGraphicsPixmapItem

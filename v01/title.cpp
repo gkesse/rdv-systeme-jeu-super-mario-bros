@@ -1,6 +1,7 @@
 #include "title.h"
 #include "view.h"
 #include "loginwindow.h"
+#include "myscene.h"
 
 #include <QScrollBar>
 #include <QPropertyAnimation>
@@ -107,6 +108,8 @@ Title::Title(View *view, QWidget *parent)
     quitButton->setToolTip("Quit program");
     quitButton->setGeometry(QRect(642, 535, 100, 32));
     connect(quitButton, SIGNAL(clicked()), this, SLOT(quitProgram()));
+
+    scroll = viewer->horizontalScrollBar();
 }
 
 Title::~Title()
@@ -128,12 +131,18 @@ bool Title::regExUserTest()
 
 void Title::on_radioButton_toggled(bool checked)
 {
+    if (checked)
+    {
+        passLine->setEchoMode(QLineEdit::Normal);
+    }
+    else
+    {
+        passLine->setEchoMode(QLineEdit::Password);
+    }
 }
 
 void Title::login()
 {
-    DataB::DBConnect(DBase);
-
     if (userLine->text().isEmpty())
     {
         QMessageBox msgBox;
@@ -167,8 +176,32 @@ void Title::login()
              << "|username=" << uInput.uName
              << "|password=" << uInput.pass;
 
+    DataB::DBConnect(DBase);
+
     if (DataB::cUsrPas(uInput, DBase.db))
     {
+        loginButton->close();
+        newUserButton->close();
+        passLine->close();
+        userLine->close();
+        userName->close();
+        password->close();
+        radioButton->close();
+        radioText->close();
+        developerButton->close();
+        quitButton->close();
+
+        scene = new MyScene(scroll, this);
+        viewer->sceneSet(scene);
+        emit playSound("stopMusic");
+    }
+    else
+    {
+        QMessageBox msgBox3(viewer);
+        msgBox3.setText(" Combination of username and/or password incorrect.");
+        msgBox3.setWindowTitle("Warning");
+        msgBox3.exec();
+        return;
     }
 }
 

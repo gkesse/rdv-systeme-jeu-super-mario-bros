@@ -26,6 +26,7 @@ view.cpp
 title.cpp
 weatherstation.cpp
 database.cpp
+myscene.cpp
 ${UI_FILES}
 mario.qrc
 )

@@ -51,13 +51,15 @@ namespace DataB
         if (Q.size() != 1)
         {
             qDebug() << "L'utilisateur n'a pas été trouvé."
-                     << "|username=" << Input.uName;
+                     << "|username=" << Input.uName
+                     << "|password=" << Input.pass;
             return false;
         }
         else
         {
             qDebug() << "L'utilisateur a été trouvé."
-                     << "|username=" << Input.uName;
+                     << "|username=" << Input.uName
+                     << "|password=" << Input.pass;
             return valid;
         }
     }
