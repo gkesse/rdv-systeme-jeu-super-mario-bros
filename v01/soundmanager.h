@@ -2,8 +2,8 @@
 
 #include <QDialog>
 
-class QMediaPlayer;
 class QSoundEffect;
+class QMediaPlayer;
 
 namespace Ui
 {

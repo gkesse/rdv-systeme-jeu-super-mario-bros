@@ -35,4 +35,11 @@ void SoundManager::playSoundEffect(QString which)
     {
         soundPlayer->play();
     }
+    else if (which == "stopMusic")
+    {
+        soundPlayer->stop();
+    }
+
+    qDebug() << "SoundManager::playSoundEffect..."
+             << "|audio=" << which;
 }
