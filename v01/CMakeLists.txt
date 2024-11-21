@@ -32,6 +32,7 @@ myscene.cpp
 backgrounditem.cpp
 player.cpp
 coin.cpp
+smallmario.cpp
 ${UI_FILES}
 mario.qrc
 audio.qrc
